@@ -11,14 +11,25 @@ ENV["RACK_ENV"] = 'test' # because we need to know what database to work with
 # because the server needs to know
 # what environment it's running it: test or development. 
 # The environment determines what database to use.
-require 'server' 
+
+puts "spec_helper"
+
+require './server' 
 
 require 'database_cleaner'
 
+require 'sinatra' # ??????????????????????
+
+require 'capybara/rspec'
+#Capybara.app = Sinatra::Application    changed to next line when we go from 'classic' structure to 'modular' and
+# the server becomes a class
+Capybara.app = BookmarkManager
+
+
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.run_all_when_everything_filtered = true
-  config.filter_run :focus
+ # config.treat_symbols_as_metadata_keys_with_true_values = true
+ # config.run_all_when_everything_filtered = true
+ # config.filter_run :focus
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing

@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+puts "link_spec"
+
 describe Link do
 
   context "Demonstration of how datamapper works" do
