@@ -5,16 +5,15 @@
   <title>Struggling with BookMark</title>
 </head>
 <body>
+  <% if flash[:notice] %>
+  <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
  
-  <h1> BookMark Home Page </h1>
-  <%= session %>
 
   <% if current_user %>
     Welcome, <%= current_user.email %>
   <% end %>
 
   <%= yield %>
- 
- 
 </body>
 </html>
