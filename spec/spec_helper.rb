@@ -21,6 +21,8 @@ require 'database_cleaner'
 require 'sinatra' # ??????????????????????
 
 require 'capybara/rspec'
+
+
 #Capybara.app = Sinatra::Application    changed to next line when we go from 'classic' structure to 'modular' and
 # the server becomes a class
 Capybara.app = BookmarkManager

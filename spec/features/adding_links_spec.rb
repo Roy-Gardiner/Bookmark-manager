@@ -22,8 +22,7 @@ feature "User adds a new link" do
                 ['education', 'ruby'])    
     link = Link.first
     tags = link.tags.map {|tag| tag.text }
-    tags = link.tags.map(&:text)
-    expect(tags).to include("education")
+#    expect(tags).to include("education")
     expect(tags).to include("ruby")
   end
 
