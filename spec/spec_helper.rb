@@ -12,9 +12,9 @@ ENV["RACK_ENV"] = 'test' # because we need to know what database to work with
 # what environment it's running it: test or development. 
 # The environment determines what database to use.
 
-puts "spec_helper"
 
-require './server' 
+require './app/server' 
+require './app/helpers.rb'
 
 require 'database_cleaner'
 
@@ -23,9 +23,11 @@ require 'sinatra' # ??????????????????????
 require 'capybara/rspec'
 
 
+
 #Capybara.app = Sinatra::Application    changed to next line when we go from 'classic' structure to 'modular' and
 # the server becomes a class
 Capybara.app = BookmarkManager
+#Capybara.app = Sinatra::Application
 
 
 RSpec.configure do |config|
